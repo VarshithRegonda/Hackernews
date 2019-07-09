@@ -2,6 +2,10 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var BlogSchema = new Schema({
+  user:{
+    type:Schema.Types.ObjectId,
+    ref:"User"
+},
   title:  String,
   author: String,
   body:   String,
@@ -12,4 +16,5 @@ var BlogSchema = new Schema({
     votes: Number,
     favs:  Number
   }
-});
+});const Blog = mongoose.model("Blog",BlogSchema);
+module.exports=Blog
